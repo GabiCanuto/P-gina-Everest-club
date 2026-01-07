@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Everest • Links</title>
+
+  <style>
+    :root{
+      --bg: #0b0b0d;
+      --panel: rgba(255,255,255,.04);
+      --stroke: rgba(255,255,255,.09);
+
+      --orange: #ff7a00;
+
+      --text: #f5f5f7;
+      --muted: rgba(245,245,247,.70);
+
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --shadowSoft: 0 12px 34px rgba(0,0,0,.38);
+      --ring: 0 0 0 4px rgba(255,122,0,.18);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(900px 520px at 50% -15%, rgba(255,122,0,.13), transparent 55%),
+        linear-gradient(180deg, #070709 0%, var(--bg) 55%, #070709 100%);
+      display:grid;
+      place-items:center;
+      padding: 18px;
+    }
+
+    .wrap{
+      width: min(620px, 100%);
+      animation: pageIn 520ms cubic-bezier(.2,.9,.2,1) both;
+    }
+    @keyframes pageIn{
+      from{ opacity:0; transform: translateY(10px); }
+      to{ opacity:1; transform: translateY(0); }
+    }
+
+    header{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border: 1px solid var(--stroke);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      padding: 18px 18px 14px;
+      margin-bottom: 14px;
+      position: relative;
+      overflow:hidden;
+    }
+
+    /* detalhe laranja minimalista */
+    header::after{
+      content:"";
+      position:absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255,122,0,.9), transparent);
+      opacity: .9;
+    }
+
+    .titleRow{
+      display:flex;
+      align-items:flex-end;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    h1{
+      margin:0;
+      font-size: 20px;
+      letter-spacing: .2px;
+      line-height: 1.15;
+    }
+
+    .sub{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .badge{
+      font-size: 12px;
+      color: rgba(245,245,247,.86);
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,122,0,.22);
+      background: rgba(255,122,0,.08);
+      white-space: nowrap;
+    }
+
+    main{
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--stroke);
+      border-radius: 26px;
+      box-shadow: var(--shadowSoft);
+      padding: 14px;
+    }
+
+    /* Botões maiores e melhor distribuídos:
+       mobile: 1 coluna
+       telas maiores: 2 colunas */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media (min-width: 700px){
+      .grid{
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+    }
+
+    a.btn{
+      text-decoration:none;
+      color: var(--text);
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      padding: 18px 18px;
+      min-height: 86px; /* maior */
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
+
+      opacity: 0;
+      transform: translateY(10px);
+      animation: btnIn 520ms cubic-bezier(.2,.9,.2,1) both;
+      animation-delay: var(--d, 0ms);
+
+      transition: transform .14s ease, border-color .14s ease, background .14s ease, box-shadow .14s ease;
+    }
+
+    @keyframes btnIn{
+      from{ opacity:0; transform: translateY(12px); }
+      to{ opacity:1; transform: translateY(0); }
+    }
+
+    /* sem quadrado laranja. só um brilho bem discreto no hover */
+    a.btn::before{
+      content:"";
+      position:absolute;
+      inset: 0;
+      background: radial-gradient(360px 140px at 20% 0%, rgba(255,122,0,.10), transparent 55%);
+      opacity: 0;
+      transition: opacity .18s ease;
+      pointer-events:none;
+    }
+
+    a.btn:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,122,0,.22);
+      background: linear-gradient(180deg, rgba(255,122,0,.06), rgba(255,255,255,.02));
+      box-shadow: 0 18px 52px rgba(0,0,0,.42);
+    }
+    a.btn:hover::before{ opacity: 1; }
+
+    a.btn:active{ transform: translateY(0) scale(.995); }
+
+    a.btn:focus-visible{
+      outline:none;
+      box-shadow: var(--ring), 0 18px 52px rgba(0,0,0,.42);
+      border-color: rgba(255,122,0,.30);
+    }
+
+    .left{
+      display:grid;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .name{
+      font-weight: 850;
+      font-size: 15.5px;
+      letter-spacing: .2px;
+      line-height: 1.1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .hint{
+      font-size: 12.5px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .go{
+      flex: 0 0 auto;
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      display:grid;
+      place-items:center;
+      font-size: 18px;
+      color: rgba(245,245,247,.92);
+      transition: transform .14s ease, border-color .14s ease;
+    }
+    a.btn:hover .go{
+      transform: translateX(2px);
+      border-color: rgba(255,122,0,.18);
+    }
+
+    /* Botão “destaque” (Atendimento online) */
+    a.btn.primary{
+      border-color: rgba(255,122,0,.22);
+      background: linear-gradient(180deg, rgba(255,122,0,.10), rgba(255,255,255,.02));
+    }
+    a.btn.primary:hover{
+      border-color: rgba(255,122,0,.32);
+      background: linear-gradient(180deg, rgba(255,122,0,.14), rgba(255,255,255,.02));
+    }
+
+    footer{
+      margin-top: 12px;
+      text-align:center;
+      color: rgba(245,245,247,.58);
+      font-size: 12px;
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ animation: none !important; transition: none !important; }
+      a.btn{ opacity:1; transform:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="titleRow">
+        <div>
+          <h1>Fale com a Everest</h1>
+          <p class="sub">Escolha a unidade ou acesse nosso site 👇</p>
+        </div>
+        <div class="badge">WhatsApp • Atendimento</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="grid" aria-label="Links Everest">
+        <!-- 1) Destaque: Atendimento online -->
+        <a class="btn primary" style="--d: 80ms;"
+           href="https://api.whatsapp.com/send/?phone=5512981827520&text=Vim+pelo+App+Everest&type=phone_number&app_absent=0"
+           target="_blank" rel="noopener">
+          <div class="left">
+            <div class="name">Atendimento online</div>
+            <div class="hint">Resposta mais rápida</div>
+          </div>
+          <div class="go" aria-hidden="true">›</div>
+        </a>
+
+        <!-- 2) Site -->
+        <a class="btn" style="--d: 140ms;"
+           href="https://www.lojaseverest.com.br/?srsltid=AfmBOoogZpZWUanMMHaUHAYAVcE0EMbQzR1ERg8OGYDoQPKf4tACL8z0"
+           target="_blank" rel="noopener">
+          <div class="left">
+            <div class="name">Acesse nosso site</div>
+            <div class="hint">lojaseverest.com.br</div>
+          </div>
+          <div class="go" aria-hidden="true">›</div>
+        </a>
+
+        <!-- 3) Lojas -->
+        <a class="btn" style="--d: 200ms;"
+           href="https://api.whatsapp.com/send/?phone=551239394855&text&type=phone_number&app_absent=0"
+           target="_blank" rel="noopener">
+          <div class="left">
+            <div class="name">Everest Vale Sul</div>
+            <div class="hint">Abrir WhatsApp</div>
+          </div>
+          <div class="go" aria-hidden="true">›</div>
+        </a>
+
+        <a class="btn" style="--d: 260ms;"
+           href="https://api.whatsapp.com/send/?phone=551220121412&text&type=phone_number&app_absent=0"
+           target="_blank" rel="noopener">
+          <div class="left">
+            <div class="name">Everest Jardim Oriente</div>
+            <div class="hint">Abrir WhatsApp</div>
+          </div>
+          <div class="go" aria-hidden="true">›</div>
+        </a>
+
+        <a class="btn" style="--d: 320ms;"
+           href="https://api.whatsapp.com/send/?phone=551231051213&text&type=phone_number&app_absent=0"
+           target="_blank" rel="noopener">
+          <div class="left">
+            <div class="name">Everest Aparecida</div>
+            <div class="hint">Abrir WhatsApp</div>
+          </div>
+          <div class="go" aria-hidden="true">›</div>
+        </a>
+
+        <a class="btn" style="--d: 380ms;"
+           href="https://api.whatsapp.com/send/?phone=551231224789&text&type=phone_number&app_absent=0"
+           target="_blank" rel="noopener">
+          <div class="left">
+            <div class="name">Everest Guará Centro</div>
+            <div class="hint">Abrir WhatsApp</div>
+          </div>
+          <div class="go" aria-hidden="true">›</div>
+        </a>
+
+        <a class="btn" style="--d: 440ms;"
+           href="https://api.whatsapp.com/send/?phone=551230137146&text&type=phone_number&app_absent=0"
+           target="_blank" rel="noopener">
+          <div class="left">
+            <div class="name">Everest Buriti</div>
+            <div class="hint">Abrir WhatsApp</div>
+          </div>
+          <div class="go" aria-hidden="true">›</div>
+        </a>
+
+        <a class="btn" style="--d: 500ms;"
+           href="https://api.whatsapp.com/send/?phone=551231575504&text&type=phone_number&app_absent=0"
+           target="_blank" rel="noopener">
+          <div class="left">
+            <div class="name">Everest Lorena Centro</div>
+            <div class="hint">Abrir WhatsApp</div>
+          </div>
+          <div class="go" aria-hidden="true">›</div>
+        </a>
+
+        <a class="btn" style="--d: 560ms;"
+           href="https://api.whatsapp.com/send/?phone=551231995688&text&type=phone_number&app_absent=0"
+           target="_blank" rel="noopener">
+          <div class="left">
+            <div class="name">Everest Ecovalle</div>
+            <div class="hint">Abrir WhatsApp</div>
+          </div>
+          <div class="go" aria-hidden="true">›</div>
+        </a>
+      </section>
+
+      <footer>Se não souber a loja, chama no Atendimento online 😉</footer>
+    </main>
+  </div>
+</body>
+</html>
