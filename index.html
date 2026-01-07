@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Everest • Links</title>
+  <title>Everest • Contatos</title>
 
   <style>
     :root{
@@ -53,10 +53,8 @@
       padding: 18px 18px 14px;
       margin-bottom: 14px;
       position: relative;
-      overflow:hidden;
     }
 
-    /* detalhe laranja minimalista */
     header::after{
       content:"";
       position:absolute;
@@ -65,39 +63,18 @@
       bottom: 0;
       height: 2px;
       background: linear-gradient(90deg, transparent, rgba(255,122,0,.9), transparent);
-      opacity: .9;
-    }
-
-    .titleRow{
-      display:flex;
-      align-items:flex-end;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
     }
 
     h1{
       margin:0;
       font-size: 20px;
       letter-spacing: .2px;
-      line-height: 1.15;
     }
 
     .sub{
       margin: 6px 0 0;
       color: var(--muted);
       font-size: 13px;
-      line-height: 1.35;
-    }
-
-    .badge{
-      font-size: 12px;
-      color: rgba(245,245,247,.86);
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,122,0,.22);
-      background: rgba(255,122,0,.08);
-      white-space: nowrap;
     }
 
     main{
@@ -108,19 +85,14 @@
       padding: 14px;
     }
 
-    /* Botões maiores e melhor distribuídos:
-       mobile: 1 coluna
-       telas maiores: 2 colunas */
     .grid{
       display:grid;
       grid-template-columns: 1fr;
       gap: 12px;
     }
+
     @media (min-width: 700px){
-      .grid{
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-      }
+      .grid{ grid-template-columns: 1fr 1fr; }
     }
 
     a.btn{
@@ -129,37 +101,22 @@
       border-radius: 24px;
       border: 1px solid rgba(255,255,255,.10);
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      padding: 18px 18px;
-      min-height: 86px; /* maior */
+      padding: 18px;
+      min-height: 86px;
       display:flex;
       align-items:center;
       justify-content: space-between;
       gap: 14px;
       position: relative;
-      overflow: hidden;
-
-      opacity: 0;
+      opacity:0;
       transform: translateY(10px);
       animation: btnIn 520ms cubic-bezier(.2,.9,.2,1) both;
       animation-delay: var(--d, 0ms);
-
       transition: transform .14s ease, border-color .14s ease, background .14s ease, box-shadow .14s ease;
     }
 
     @keyframes btnIn{
-      from{ opacity:0; transform: translateY(12px); }
       to{ opacity:1; transform: translateY(0); }
-    }
-
-    /* sem quadrado laranja. só um brilho bem discreto no hover */
-    a.btn::before{
-      content:"";
-      position:absolute;
-      inset: 0;
-      background: radial-gradient(360px 140px at 20% 0%, rgba(255,122,0,.10), transparent 55%);
-      opacity: 0;
-      transition: opacity .18s ease;
-      pointer-events:none;
     }
 
     a.btn:hover{
@@ -168,66 +125,40 @@
       background: linear-gradient(180deg, rgba(255,122,0,.06), rgba(255,255,255,.02));
       box-shadow: 0 18px 52px rgba(0,0,0,.42);
     }
-    a.btn:hover::before{ opacity: 1; }
-
-    a.btn:active{ transform: translateY(0) scale(.995); }
 
     a.btn:focus-visible{
       outline:none;
       box-shadow: var(--ring), 0 18px 52px rgba(0,0,0,.42);
-      border-color: rgba(255,122,0,.30);
+    }
+
+    a.btn.primary{
+      border-color: rgba(255,122,0,.25);
+      background: linear-gradient(180deg, rgba(255,122,0,.10), rgba(255,255,255,.02));
     }
 
     .left{
       display:grid;
       gap: 6px;
-      min-width: 0;
     }
 
     .name{
       font-weight: 850;
       font-size: 15.5px;
-      letter-spacing: .2px;
-      line-height: 1.1;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     .hint{
       font-size: 12.5px;
       color: var(--muted);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     .go{
-      flex: 0 0 auto;
       width: 46px;
       height: 46px;
       border-radius: 999px;
-      background: rgba(255,255,255,.04);
       border: 1px solid rgba(255,255,255,.10);
       display:grid;
       place-items:center;
       font-size: 18px;
-      color: rgba(245,245,247,.92);
-      transition: transform .14s ease, border-color .14s ease;
-    }
-    a.btn:hover .go{
-      transform: translateX(2px);
-      border-color: rgba(255,122,0,.18);
-    }
-
-    /* Botão “destaque” (Atendimento online) */
-    a.btn.primary{
-      border-color: rgba(255,122,0,.22);
-      background: linear-gradient(180deg, rgba(255,122,0,.10), rgba(255,255,255,.02));
-    }
-    a.btn.primary:hover{
-      border-color: rgba(255,122,0,.32);
-      background: linear-gradient(180deg, rgba(255,122,0,.14), rgba(255,255,255,.02));
     }
 
     footer{
@@ -236,123 +167,84 @@
       color: rgba(245,245,247,.58);
       font-size: 12px;
     }
-
-    @media (prefers-reduced-motion: reduce){
-      *{ animation: none !important; transition: none !important; }
-      a.btn{ opacity:1; transform:none; }
-    }
   </style>
 </head>
 
 <body>
   <div class="wrap">
     <header>
-      <div class="titleRow">
-        <div>
-          <h1>Fale com a Everest</h1>
-          <p class="sub">Escolha a unidade ou acesse nosso site 👇</p>
-        </div>
-        <div class="badge">WhatsApp • Atendimento</div>
-      </div>
+      <h1>Fale com a Everest</h1>
+      <p class="sub">Escolha a opção desejada 👇</p>
     </header>
 
     <main>
-      <section class="grid" aria-label="Links Everest">
-        <!-- 1) Destaque: Atendimento online -->
-        <a class="btn primary" style="--d: 80ms;"
+      <section class="grid">
+
+        <!-- Atendimento Online -->
+        <a class="btn primary" style="--d:80ms"
            href="https://api.whatsapp.com/send/?phone=5512981827520&text=Vim+pelo+App+Everest&type=phone_number&app_absent=0"
-           target="_blank" rel="noopener">
+           target="_blank">
           <div class="left">
             <div class="name">Atendimento online</div>
             <div class="hint">Resposta mais rápida</div>
           </div>
-          <div class="go" aria-hidden="true">›</div>
+          <div class="go">›</div>
         </a>
 
-        <!-- 2) Site -->
-        <a class="btn" style="--d: 140ms;"
-           href="https://www.lojaseverest.com.br/?srsltid=AfmBOoogZpZWUanMMHaUHAYAVcE0EMbQzR1ERg8OGYDoQPKf4tACL8z0"
-           target="_blank" rel="noopener">
+        <!-- Dúvidas sobre o envio -->
+        <a class="btn primary" style="--d:140ms"
+           href="https://wa.me/5512988916855?text=D%C3%BAvidas%20sobre%20o%20envio.%20Vim%20pelo%20App%20Everest"
+           target="_blank">
+          <div class="left">
+            <div class="name">Dúvidas sobre o envio</div>
+            <div class="hint">Pedidos, prazos e entregas</div>
+          </div>
+          <div class="go">›</div>
+        </a>
+
+        <!-- Site -->
+        <a class="btn" style="--d:200ms"
+           href="https://www.lojaseverest.com.br/"
+           target="_blank">
           <div class="left">
             <div class="name">Acesse nosso site</div>
             <div class="hint">lojaseverest.com.br</div>
           </div>
-          <div class="go" aria-hidden="true">›</div>
+          <div class="go">›</div>
         </a>
 
-        <!-- 3) Lojas -->
-        <a class="btn" style="--d: 200ms;"
-           href="https://api.whatsapp.com/send/?phone=551239394855&text&type=phone_number&app_absent=0"
-           target="_blank" rel="noopener">
-          <div class="left">
-            <div class="name">Everest Vale Sul</div>
-            <div class="hint">Abrir WhatsApp</div>
-          </div>
-          <div class="go" aria-hidden="true">›</div>
+        <!-- Lojas -->
+        <a class="btn" style="--d:260ms" href="https://api.whatsapp.com/send/?phone=551239394855&text&type=phone_number&app_absent=0" target="_blank">
+          <div class="left"><div class="name">Everest Vale Sul</div><div class="hint">Abrir WhatsApp</div></div><div class="go">›</div>
         </a>
 
-        <a class="btn" style="--d: 260ms;"
-           href="https://api.whatsapp.com/send/?phone=551220121412&text&type=phone_number&app_absent=0"
-           target="_blank" rel="noopener">
-          <div class="left">
-            <div class="name">Everest Jardim Oriente</div>
-            <div class="hint">Abrir WhatsApp</div>
-          </div>
-          <div class="go" aria-hidden="true">›</div>
+        <a class="btn" style="--d:320ms" href="https://api.whatsapp.com/send/?phone=551220121412&text&type=phone_number&app_absent=0" target="_blank">
+          <div class="left"><div class="name">Everest Jardim Oriente</div><div class="hint">Abrir WhatsApp</div></div><div class="go">›</div>
         </a>
 
-        <a class="btn" style="--d: 320ms;"
-           href="https://api.whatsapp.com/send/?phone=551231051213&text&type=phone_number&app_absent=0"
-           target="_blank" rel="noopener">
-          <div class="left">
-            <div class="name">Everest Aparecida</div>
-            <div class="hint">Abrir WhatsApp</div>
-          </div>
-          <div class="go" aria-hidden="true">›</div>
+        <a class="btn" style="--d:380ms" href="https://api.whatsapp.com/send/?phone=551231051213&text&type=phone_number&app_absent=0" target="_blank">
+          <div class="left"><div class="name">Everest Aparecida</div><div class="hint">Abrir WhatsApp</div></div><div class="go">›</div>
         </a>
 
-        <a class="btn" style="--d: 380ms;"
-           href="https://api.whatsapp.com/send/?phone=551231224789&text&type=phone_number&app_absent=0"
-           target="_blank" rel="noopener">
-          <div class="left">
-            <div class="name">Everest Guará Centro</div>
-            <div class="hint">Abrir WhatsApp</div>
-          </div>
-          <div class="go" aria-hidden="true">›</div>
+        <a class="btn" style="--d:440ms" href="https://api.whatsapp.com/send/?phone=551231224789&text&type=phone_number&app_absent=0" target="_blank">
+          <div class="left"><div class="name">Everest Guará Centro</div><div class="hint">Abrir WhatsApp</div></div><div class="go">›</div>
         </a>
 
-        <a class="btn" style="--d: 440ms;"
-           href="https://api.whatsapp.com/send/?phone=551230137146&text&type=phone_number&app_absent=0"
-           target="_blank" rel="noopener">
-          <div class="left">
-            <div class="name">Everest Buriti</div>
-            <div class="hint">Abrir WhatsApp</div>
-          </div>
-          <div class="go" aria-hidden="true">›</div>
+        <a class="btn" style="--d:500ms" href="https://api.whatsapp.com/send/?phone=551230137146&text&type=phone_number&app_absent=0" target="_blank">
+          <div class="left"><div class="name">Everest Buriti</div><div class="hint">Abrir WhatsApp</div></div><div class="go">›</div>
         </a>
 
-        <a class="btn" style="--d: 500ms;"
-           href="https://api.whatsapp.com/send/?phone=551231575504&text&type=phone_number&app_absent=0"
-           target="_blank" rel="noopener">
-          <div class="left">
-            <div class="name">Everest Lorena Centro</div>
-            <div class="hint">Abrir WhatsApp</div>
-          </div>
-          <div class="go" aria-hidden="true">›</div>
+        <a class="btn" style="--d:560ms" href="https://api.whatsapp.com/send/?phone=551231575504&text&type=phone_number&app_absent=0" target="_blank">
+          <div class="left"><div class="name">Everest Lorena Centro</div><div class="hint">Abrir WhatsApp</div></div><div class="go">›</div>
         </a>
 
-        <a class="btn" style="--d: 560ms;"
-           href="https://api.whatsapp.com/send/?phone=551231995688&text&type=phone_number&app_absent=0"
-           target="_blank" rel="noopener">
-          <div class="left">
-            <div class="name">Everest Ecovalle</div>
-            <div class="hint">Abrir WhatsApp</div>
-          </div>
-          <div class="go" aria-hidden="true">›</div>
+        <a class="btn" style="--d:620ms" href="https://api.whatsapp.com/send/?phone=551231995688&text&type=phone_number&app_absent=0" target="_blank">
+          <div class="left"><div class="name">Everest Ecovalle</div><div class="hint">Abrir WhatsApp</div></div><div class="go">›</div>
         </a>
+
       </section>
 
-      <footer>Se não souber a loja, chama no Atendimento online 😉</footer>
+      <footer>Everest • Atendimento oficial</footer>
     </main>
   </div>
 </body>
